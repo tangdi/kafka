@@ -1597,6 +1597,8 @@ class KafkaController(val config: KafkaConfig, zkUtils: ZkUtils, time: Time, met
 
   }
 
+  // DiTang: Kafka leader election, triggered when zookeeper ephemeral node of partition controller is deleted
+  // one kafka broker cluster has only one controller
   case object Reelect extends ControllerEvent {
 
     def state = ControllerState.ControllerChange
